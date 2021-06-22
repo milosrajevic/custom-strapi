@@ -123,59 +123,6 @@ const HomePage = ({ history: { push } }) => {
               >
                 {msg => <h2 id="mainHeader">{msg}</h2>}
               </FormattedMessage>
-              {hasAlreadyCreatedContentTypes ? (
-                <FormattedMessage id="app.components.HomePage.welcomeBlock.content.again">
-                  {msg => <P>{msg}</P>}
-                </FormattedMessage>
-              ) : (
-                <FormattedMessage id="HomePage.welcome.congrats">
-                  {congrats => {
-                    return (
-                      <FormattedMessage id="HomePage.welcome.congrats.content">
-                        {content => {
-                          return (
-                            <FormattedMessage id="HomePage.welcome.congrats.content.bold">
-                              {boldContent => {
-                                return (
-                                  <P>
-                                    <b>{congrats}</b>&nbsp;
-                                    {content}&nbsp;
-                                    <b>{boldContent}</b>
-                                  </P>
-                                );
-                              }}
-                            </FormattedMessage>
-                          );
-                        }}
-                      </FormattedMessage>
-                    );
-                  }}
-                </FormattedMessage>
-              )}
-              {hasAlreadyCreatedContentTypes && (
-                <div style={{ marginTop: isLoading ? 60 : 50 }}>
-                  {posts.map((post, index) => (
-                    <BlogPost
-                      {...post}
-                      key={post.link}
-                      isFirst={index === 0}
-                      isLoading={isLoading}
-                      error={error}
-                    />
-                  ))}
-                </div>
-              )}
-              <FormattedMessage id={linkProps.id}>
-                {msg => (
-                  <ALink
-                    rel="noopener noreferrer"
-                    {...linkProps}
-                    style={{ verticalAlign: ' bottom', marginBottom: 5 }}
-                  >
-                    {msg}
-                  </ALink>
-                )}
-              </FormattedMessage>
               <Separator style={{ marginTop: 37, marginBottom: 36 }} />
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 {FIRST_BLOCK_LINKS.map((data, index) => {
